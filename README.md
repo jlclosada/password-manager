@@ -8,7 +8,6 @@
   <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/Encryption-AES--256--GCM-red?logo=shield&logoColor=white" />
   <img src="https://img.shields.io/badge/Storage-100%25_Local-green" />
-  <img src="https://img.shields.io/badge/License-MIT-purple" />
 </p>
 
 ---
