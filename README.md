@@ -158,4 +158,4 @@ cp vault.db vault-backup-$(date +%Y%m%d).db
 
 ## 📄 Licencia
 
-MIT © 2024
+Jose Luis Caceres Losada © 2026
