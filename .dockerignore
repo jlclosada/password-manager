@@ -1,0 +1,16 @@
+# No incluir en la imagen Docker
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.db-journal
+.git/
+.gitignore
+.dockerignore
+*.md
+*.sh
+.env
+.DS_Store
+.vscode/
+.idea/

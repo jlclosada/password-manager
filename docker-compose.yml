@@ -1,0 +1,45 @@
+services:
+  vault:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: password-vault
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8000:8000"   # Solo localhost, no expuesto a red externa
+
+    volumes:
+      - vault-data:/data         # Persistencia de la base de datos
+
+    environment:
+      - DB_PATH=/data/vault.db
+      - PYTHONUNBUFFERED=1
+
+    security_opt:
+      - no-new-privileges:true   # El contenedor no puede escalar privilegios
+
+    read_only: false             # Necesita escribir en /data
+    tmpfs:
+      - /tmp                     # /tmp en memoria, no en disco
+
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/status')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  vault-data:
+    driver: local
+    labels:
+      description: "Password Vault - encrypted SQLite database"

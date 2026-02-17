@@ -1,0 +1,18 @@
+# ─── NUNCA subir esto a git ───────────────────────────────
+vault.db          # Tu base de datos con las contraseñas
+*.db              # Cualquier base de datos SQLite
+*.db-journal
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
